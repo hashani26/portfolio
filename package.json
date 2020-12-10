@@ -3,29 +3,48 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
+    "@craco/craco": "^5.9.0",
+    "@jest/globals": "^26.6.2",
+    "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
+    "@types/enzyme": "^3.10.8",
+    "@types/jest": "^26.0.16",
+    "@types/lodash": "^4.14.165",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "@types/react-test-renderer": "^17.0.0",
+    "antd": "^4.9.1",
+    "autoprefixer": "^9",
+    "craco-antd": "^1.19.0",
+    "craco-less": "^1.17.1",
+    "craco-preact": "^1.1.0",
+    "less": "^3.12.2",
+    "less-loader": "^7.1.0",
+    "node-sass": "4.14.1",
+    "postcss": "^7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-scripts": "4.0.1",
+    "react-scripts": "3.0.1",
+    "stylelint-config-recommended": "^3.0.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "ts-jest": "^26.4.4",
     "typescript": "^4.0.3",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build:style": "tailwind build src/styles/index.less -o src/styles/tailwind.scss",
+    "start": "nodemon -w craco.config.js --exec \"craco start\"",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
@@ -39,5 +58,22 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-react": "^7.12.7",
+    "@storybook/addon-actions": "^6.1.10",
+    "@storybook/addon-essentials": "^6.1.10",
+    "@storybook/addon-links": "^6.1.10",
+    "@storybook/node-logger": "^6.1.10",
+    "@storybook/preset-create-react-app": "^3.1.5",
+    "@storybook/react": "^6.1.10",
+    "babel-jest": "24.8.0",
+    "babel-loader": "8.0.5",
+    "enzyme": "^3.11.0",
+    "jest": "24.7.1",
+    "nodemon": "^2.0.6",
+    "postcss-cli": "^8.3.0",
+    "react-test-renderer": "^17.0.1"
   }
 }
