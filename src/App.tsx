@@ -1,31 +1,23 @@
-import React, { createRef, useState, useRef, RefAttributes } from "react";
+import React, { createRef, useState } from "react";
 import { Row, Col, Card, Table, Typography, Input } from "antd";
 import { ColumnProps } from "antd/lib/table";
 import { DeleteOutlined } from "@ant-design/icons";
-import _ from "lodash";
-import "antd/dist/antd.less";
 import { CustomButton } from "./components/CustomButton";
-import Button, { ButtonProps } from "antd/lib/button";
-import "../src/styles/index.less";
+import _ from "lodash";
+import "./App.less";
+import "tailwindcss/tailwind.css"; //tailwind config instead of @tailwind import in index.less file
 
 const { Title } = Typography;
-
 interface TaskList {
   key: number;
   task: string;
   status: string;
   remove: React.ReactNode;
 }
-
-function App() {
+const App = () => {
   const [taskName, setTaskName] = useState<string>("");
   const [data, setData] = useState<TaskList[]>([]);
-  // const statusBtn = React.useRef() as React.MutableRefObject<HTMLButtonElement>;
   const statusBtn = React.useRef<HTMLButtonElement>();
-  console.log(
-    "🚀 ~ file: App.tsx ~ line 23 ~ App ~ statusBtn",
-    statusBtn.current
-  );
 
   const columns: ColumnProps<TaskList>[] = [
     {
@@ -36,16 +28,22 @@ function App() {
       title: "Status",
       dataIndex: "status",
       render: (value, record, index) => (
-        <CustomButton
-          ref={createRef()}
-          type="primary"
-          onClick={() => {
-            data[index].status = value === "To do" ? "Done" : "To do";
-            setData(_.cloneDeep(data));
-          }}
-        >
-          {value}
-        </CustomButton>
+        <>
+          <CustomButton
+            className={
+              value === "To do"
+                ? "border-yellow text-yellow hover:border-yellow hover:text-yellow hover:bg-yellow hover:text-white focus:border-yellow focus:text-yellow focus:bg-yellow focus:text-white"
+                : "border-green text-green hover:border-green hover:text-green hover:bg-green hover:text-white  focus:border-green focus:text-green focus:bg-green focus:text-white"
+            }
+            ref={createRef()}
+            onClick={() => {
+              data[index].status = value === "To do" ? "Done" : "To do";
+              setData(_.cloneDeep(data));
+            }}
+          >
+            {value}
+          </CustomButton>
+        </>
       ),
     },
     {
@@ -108,6 +106,5 @@ function App() {
       </Row>
     </>
   );
-}
-
+};
 export default App;

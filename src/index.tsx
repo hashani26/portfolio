@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './index.less';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import 'antd/dist/antd.css';
-import './styles/tailwind.scss';
 
 ReactDOM.render(
   <React.StrictMode>

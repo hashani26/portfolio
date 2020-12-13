@@ -4,8 +4,7 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext",
-      "es2015"
+      "esnext"
     ],
     "allowJs": true,
     "skipLibCheck": true,
@@ -19,17 +18,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve",
-    "declaration": true,
-    "outDir": "dist",
-    "sourceMap": true
+    "jsx": "preserve"
   },
   "include": [
-    "src",
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts"
+    "src"
   ]
 }

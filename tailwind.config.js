@@ -1,21 +1,17 @@
-const colors = require('tailwindcss/colors');
-const theme = require('./theme');
+const theme = require("./theme");
 
 module.exports = {
-  purge: ['./src/**/*.js', './public/index.html'],
+  purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: { opacity: ['disabled', 'bg'] },
-    colors: {
-      black: theme.colors.black,
-      white: theme.colors.white,
-      gray: theme.colors.gray,
-      pink: theme.colors.pink,
+    colors: { ...theme.colors },
+    fontFamily: {
+      sans: [theme.fonts.primary],
     },
+    extend: {},
   },
   variants: {
     extend: {},
   },
   plugins: [],
-  important: true,
 };
