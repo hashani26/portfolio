@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<button
+  className="ant-btn"
+  data-testid="button"
+  onClick={[Function]}
+  type="button"
+>
+  <span>
+    Done
+  </span>
+</button>
+`;
+
+exports[`matches snapshot of add task button 1`] = `
+<button
+  className="ant-btn"
+  data-testid="button"
+  onClick={[Function]}
+  type="button"
+>
+  <span>
+    ADD TASK
+  </span>
+</button>
+`;
